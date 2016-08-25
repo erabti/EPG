@@ -93,3 +93,14 @@ body
 {
    border: 1px #C0C0C0 solid;
 }
+
+#PageFooter1
+{
+   background-color: transparent;
+   background-image: url(images/index_PageFooter1_bkgrnd.png);
+   background-repeat: repeat-x;
+   background-position: left top;
+   -moz-box-shadow: 2px 2px 7px #000000;
+   -webkit-box-shadow: 2px 2px 7px #000000;
+   box-shadow: 2px 2px 7px #000000;
+}
