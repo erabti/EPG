@@ -28,12 +28,9 @@ body
     width:471px;
     height:471px;
     z-index:9;
-    border: 1px #C0C0C0 solid;
+    visibility: visible;
 }
-#Shape1
-{
-   border-width: 0;
-}
+
 #Image3
 {
    border: 0px #000000 solid;
@@ -100,10 +97,7 @@ body
    font-weight: normal;
    font-size: 13px;
 }
-#InlineFrame1
-{
-   border: 1px #C0C0C0 solid;
-}
+
 
 #PageFooter1
 {

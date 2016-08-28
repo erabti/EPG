@@ -53,7 +53,7 @@ $(document).ready(function()
 </script>
 </head>
 
-<body>
+<body onload="isPlay = false;">
 <div id="container">
 <div id="wb_Shape1" style="position:absolute;left:226px;top:0px;width:516px;height:172px;z-index:0;">
 
@@ -82,8 +82,8 @@ $(document).ready(function()
 
 <div id="wb_Shape2" style="position:absolute;left:64px;top:216px;width:162px;height:212px;z-index:7;">
 <img src="images/img0004.png" id="Shape2" alt="" style="width:162px;height:212px;"></div>
-
-<input type="submit" class="Button" id="Button1" name="Start_btn" value="Start" style="position:absolute;left:95px;top:238px;width:95px;height:25px;z-index:8;">
+<!-- Buttons -->
+<input onclick="play()"type="submit" class="Button" id="Button1" name="Start_btn" value="Start" style="position:absolute;left:95px;top:238px;width:95px;height:25px;z-index:8;">
 <input onclick="puse();" type="submit" class="Button" id="Button2" name="Puse_btn" value="Puse" style="position:absolute;left:95px;top:268px;width:95px;height:25px;z-index:8;">
 <!-- Add game -->
 <div id="gameContainer">

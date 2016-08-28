@@ -1,22 +1,37 @@
 isPlay = true;
 movement = true;
 
-function puse ()
+function puse () //puse and resume the game
 {
-	movement = !movement;
-	var button2 = document.getElementById ("Button2");
-	if(movement) button2.value = "Puse";
+	movement = !movement; //do the opp of the movemnt value
+	var button2 = document.getElementById ("Button2"); //gets the object Button2
+	//Changing the button text according to the statution
+	if(movement) button2.value = "Puse"; 
 	else if (!movement) button2.value = "Resume";
 }
+
 function play ()
 {
-	init();
-}
+	var button1 = document.getElementById("Button1"); //gets Button1
+	var gameContainer = document.getElementById("gameContainer"); //gets gameContainer div
 
+	isPlay = !isPlay; //do the opp of the isPlay value
+    
+    if (isPlay) {
+    button1.value = "Stop";
+    gameContainer.style.visibility = "visible";
+    }
+    else if (!isPlay) {
+    	button1.value = "Start";
+    	gameContainer.style.visibility = "hidden";
+    }
+    
+
+
+}
 
 $(document).ready(function(){
 
-	if (isPlay){
 	//Canvas stuff
 	var canvas = $("#canvas")[0];
 
@@ -60,6 +75,7 @@ $(document).ready(function(){
 	}
 	init();
 	
+
 	function create_snake()
 	{
 		var length = 5; //Length of the snake
@@ -85,7 +101,9 @@ $(document).ready(function(){
 	//Lets paint the snake now
 	function paint()
 	{
-		//To avoid the snake trail we need to paint the BG on every frame
+		if (isPlay) 
+		{
+         //To avoid the snake trail we need to paint the BG on every frame
 		//Lets paint the canvas now
 		ctx.fillStyle = "white";
 		ctx.fillRect(0, 0, w, h);
@@ -160,7 +178,12 @@ $(document).ready(function(){
 		//Lets paint the score
 		var score_text = "Score: " + score;
 		ctx.fillText(score_text, 5, h-5);
-        
+		} 
+        if (isPlay==false)
+        {
+            init ();
+        	
+        }
 	}
 	
 	//Lets first create a generic function to paint cells
@@ -194,7 +217,7 @@ $(document).ready(function(){
 		else if(key == "40" && d != "up") d = "down";
 		//The snake is now keyboard controllable
 	})	
-	}
+	
 	
 	
 })	
