@@ -3,18 +3,24 @@ movement = true;
 
 function puse () //puse and resume the game
 {
-	movement = !movement; //do the opp of the movemnt value
+	if (isPlay)
+	{
+    movement = !movement; //do the opp of the movemnt value
 	var button2 = document.getElementById ("Button2"); //gets the object Button2
 	//Changing the button text according to the statution
 	if(movement) button2.value = "Puse"; 
 	else if (!movement) button2.value = "Resume";
+	}
+    
+
+	
 }
 
 function play ()
 {
 	var button1 = document.getElementById("Button1"); //gets Button1
 	var gameContainer = document.getElementById("gameContainer"); //gets gameContainer div
-
+    if (!movement) puse ();
 	isPlay = !isPlay; //do the opp of the isPlay value
     
     if (isPlay) {
@@ -22,8 +28,10 @@ function play ()
     gameContainer.style.visibility = "visible";
     }
     else if (!isPlay) {
+ 
     	button1.value = "Start";
     	gameContainer.style.visibility = "hidden";
+
     }
     
 
