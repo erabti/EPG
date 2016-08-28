@@ -19,6 +19,17 @@ body
    margin: 0;
    text-align: center;
 }
+#gameContainer
+{
+    
+    position:absolute;
+    left:242px;
+    top:220px;
+    width:471px;
+    height:471px;
+    z-index:9;
+    border: 1px #C0C0C0 solid;
+}
 #Shape1
 {
    border-width: 0;
