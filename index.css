@@ -85,7 +85,7 @@ body
 {
    border-width: 0;
 }
-.Button, .if_btns
+.Button, .if_btns,.events_btns
 {
    position: absolute;
    border: 1px #A9A9A9 solid;

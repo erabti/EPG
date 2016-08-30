@@ -49,8 +49,8 @@ function showButtons (btn_array)
 
 var code =""; //contains the player instered code.
 
-showButtons(statements_buttons);//as default
-
+//showButtons(statements_buttons);//as default
+hideButtons(statements_buttons);
 //** Events **
 //base statements events
 document.getElementById("p_button1").onclick = function()
@@ -78,45 +78,45 @@ document.getElementById("p_button4").onclick = function()
 //if statements events
 document.getElementById("if_p_button1").onclick = function()
 {
-	
+	hideButtons(if_statement_buttons);
 }
 document.getElementById("if_p_button2").onclick = function()
 {
-	
+	hideButtons(if_statement_buttons);
 }
 document.getElementById("if_p_button3").onclick = function()
 {
-	
+	hideButtons(if_statement_buttons);
 }
 document.getElementById("if_p_button4").onclick = function()
 {
-	
+	hideButtons(if_statement_buttons);
 }
 document.getElementById("if_p_button5").onclick = function()
 {
-	
+	hideButtons(if_statement_buttons);
 }
 document.getElementById("if_p_button6").onclick = function()
 {
-	
+	hideButtons(if_statement_buttons);
 }
 document.getElementById("if_p_button7").onclick = function()
 {
-	
+	hideButtons(if_statement_buttons);
 }
 document.getElementById("if_p_button8").onclick = function()
 {
-	
+	hideButtons(if_statement_buttons);
 }
 document.getElementById("if_p_button9").onclick = function()
 {
-	
+	hideButtons(if_statement_buttons);
 }
 document.getElementById("if_p_button10").onclick = function()
 {
-	
+	hideButtons(if_statement_buttons);
 }
 document.getElementById("if_p_button11").onclick = function()
 {
-	
+	hideButtons(if_statement_buttons);
 }
