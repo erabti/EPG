@@ -3,7 +3,7 @@ div#container
    width: 970px;
    position: relative;
    margin: 0 auto 0 auto;
-   text-align: left;
+   text-align: center;
 }
 body
 {
@@ -85,7 +85,7 @@ body
 {
    border-width: 0;
 }
-.Button
+.Button, .if_btns
 {
    position: absolute;
    border: 1px #A9A9A9 solid;
@@ -97,6 +97,15 @@ body
    font-family: "Comic Sans MS";
    font-weight: normal;
    font-size: 13px;
+}
+.if_btns
+{
+   visibility:hidden;
+}
+#if_statement_buttons
+{
+   background-color: blue;
+   text-align: center;
 }
 .control_text
 {

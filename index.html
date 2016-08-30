@@ -27,7 +27,7 @@ teach children how computer work">
 
 <script src="jquery-1.11.1.min.js"></script>
 <script src="wb.canvas.min.js"></script>
-<script src="script/controller.js"></script>
+
 <script>
 $(document).ready(function()
 {
@@ -54,6 +54,7 @@ $(document).ready(function()
 </head>
 
 <body onload="isPlay=false; welcomeAlert();">
+
 <div id="container">
 <div id="wb_Shape1" style="position:absolute;left:226px;top:0px;width:516px;height:172px;z-index:0;">
 
@@ -81,14 +82,14 @@ $(document).ready(function()
 </div>
 
 <!-- Base control panel -->
-<div id="wb_Shape2" style="position:absolute;left:64px;top:216px;width:162px;height:212px;z-index:7;">
+<div id="wb_Shape2" style="position:absolute;left:64px;top:216px;width:162px;height:164px;z-index:7;">
 <h6 class="control_text">Control Panel</h6>
-<img src="images/img0004.png" id="Shape2" alt="" style="width:162px;height:212px;"></div>
+<img src="images/img0004.png" id="Shape2" alt="" style="width:162px;height:164px;"></div>
 <!-- Programming conrol panel-->
-<div id="wb_Shape3" style="position:absolute;left:712px;top:216px;width:162px;height:212px;z-index:7;">
+<div id="wb_Shape3" style="position:absolute;left:712px;top:216px;width:162px;height:164px;z-index:7;">
 
 <h6 class="control_text" style="left:10px;">Select a Statements</h6>
-<img src="images/img0004.png" id="Shape3" alt="" style="width:162px;height:212px;"></div>
+<img src="images/img0004.png" id="Shape3" alt="" style="width:162px;height:164px;"></div>
 
 <!-- Base Buttons -->
 <input onclick="play()"type="submit" class="Button" id="Button1" name="Start_btn" value="Start" style="position:absolute;left:95px;top:238px;width:95px;height:25px;z-index:8;">
@@ -99,6 +100,22 @@ $(document).ready(function()
 <input type="submit" class="Button" id="p_button2" name="for_btn" value="for statement" style="position:absolute;left:743px;top:268px;width:95px;height:25px;z-index:8;">
 <input type="submit" class="Button" id="p_button3" name="switch_btn" value="switch statement" style="position:absolute;left:743px;top:298px;width:95px;height:25px;z-index:8;">
 <input type="submit" class="Button" id="p_button4" name="while_btn" value="while statement" style="position:absolute;left:743px;top:328px;width:95px;height:25px;z-index:8;">
+
+<!-- if statement Buttons -->
+<div id="if_statement_buttons">
+<input type="submit" class="if_btns"class="Button" id="if_p_button1" name="if_touched_itself" value="Touched itself" style="position:absolute;left:753px;top:238px;width:95px;height:25px;z-index:8;">
+<input type="submit"class="if_btns" class="Button" id="if_p_button2" name="if_touched_food" value="Touched food" style="position:absolute;left:753px;top:268px;width:95px;height:25px;z-index:8;">
+<input type="submit" class="if_btns" class="Button" id="if_p_button3" name="if_touched" value="Touched walls" style="position:absolute;left:753px;top:298px;width:95px;height:25px;z-index:8;">
+<input type="submit" class="if_btns" class="Button" id="if_p_button4" name="if_pressed_upper" value="Pressed upper row button" style="position:absolute;left:719px;top:328px;width:165px;height:25px;z-index:8;">
+<input type="submit" class="if_btns" class="Button" id="if_p_button5" name="if_pressed_down" value="Pressed down row button" style="position:absolute;left:719px;top:358px;width:165px;height:25px;z-index:8;">
+<input type="submit" class="if_btns" class="Button" id="if_p_button6" name="if_pressed_left" value="Pressed left row button" style="position:absolute;left:719px;top:388px;width:165px;height:25px;z-index:8;">
+<input type="submit" class="if_btns" class="Button" id="if_p_button7" name="if_pressed_right" value="Pressed right row button" style="position:absolute;left:719px;top:418px;width:165px;height:25px;z-index:8;">
+<input type="submit" class="if_btns" class="Button" id="if_p_button8" name="if_time_passed" value="Time passed..." style="position:absolute;left:753px;top:448px;width:95px;height:25px;z-index:8;">
+<input type="submit" class="if_btns" class="Button" id="if_p_button9" name="if_clicked_snake" value="Clicked snake" style="position:absolute;left:753px;top:478px;width:95px;height:25px;z-index:8;">
+<input type="submit" class="if_btns" class="Button" id="if_p_button10" name="if_clicked_food" value="Clicked food" style="position:absolute;left:753px;top:508px;width:95px;height:25px;z-index:8;">
+<input type="submit" class="if_btns" class="Button" id="if_p_button11" name="if_clicked_whitespace" value="Clicked white space" style="position:absolute;left:733px;top:538px;width:135px;height:25px;z-index:8;">
+</div>
+<script src="script/controller.js"></script>
 <!-- Add game -->
 <div id="gameContainer">
 <script type="text/javascript" src="index.js"></script>
