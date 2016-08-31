@@ -1,6 +1,14 @@
-isPlay = true;
-movement = true;
-
+var isPlay = true;
+var stopNow = false;//stopiing the game without deleting the whole cnavas
+var movement = true;
+var hasItTouchedItself = false;
+var snakeColor = "blue";
+var snakeSpeed = 60;
+var foodColor = "blue";
+var defaultLength = 5;
+var startDirection = "left";
+var backgroundColor = "white";
+var score;
 function puse () //puse and resume the game
 {
 	if (isPlay)
@@ -51,14 +59,12 @@ $(document).ready(function(){
 	var cw = 10;
 	var d;
 	var food;
-	var score;
-	
 	//Lets create the snake now
 	var snake_array; //an array of cells to make up the snake
 
 	function init()
 	{
-		d = "right"; //default direction
+		d = startDirection; //default direction
 		create_snake();
 		create_food(); //Now we can see the food particle
 		//finally lets display the score
@@ -73,7 +79,7 @@ $(document).ready(function(){
 			console.log (paint);
 		// Puse Button (Button2) logic
         if (movement){
-        	game_loop = setInterval(paint, 60);
+        	game_loop = setInterval(paint, snakeSpeed);
         }
         else if (movement == false)
         {
@@ -86,7 +92,7 @@ $(document).ready(function(){
 
 	function create_snake()
 	{
-		var length = 5; //Length of the snake
+		var length = defaultLength; //Length of the snake
 		snake_array = []; //Empty array to start with
 		for(var i = length-1; i>=0; i--)
 		{
@@ -113,7 +119,7 @@ $(document).ready(function(){
 		{
          //To avoid the snake trail we need to paint the BG on every frame
 		//Lets paint the canvas now
-		ctx.fillStyle = "white";
+		ctx.fillStyle = backgroundColor;
 		ctx.fillRect(0, 0, w, h);
 		ctx.strokeStyle = "black";
 		ctx.strokeRect(0, 0, w, h);
@@ -138,14 +144,27 @@ $(document).ready(function(){
 		//This will restart the game if the snake hits the wall
 		//Lets add the code for body collision
 		//Now if the head of the snake bumps into its body, the game will restart
+
 		if(nx == -1 || nx == w/cw || ny == -1 || ny == h/cw || check_collision(nx, ny, snake_array))
 		{
+			hasItTouchedItself = true;
 			//restart game
-			if (movement)
-			init();
+			if (movement);
+			//init();
 			//Lets organize the code a bit now.
+			//return;
+		}
+		else if(!(nx == -1 || nx == w/cw || ny == -1 || ny == h/cw || check_collision(nx, ny, snake_array)))
+		{
+			hasItTouchedItself = false;
+		}
+		if (stopNow)
+		{
+			if(movement)
+			init();
 			return;
 		}
+
 		if (movement ==false) {
 			nx = 0;
 			ny = 0;
@@ -178,11 +197,11 @@ $(document).ready(function(){
 		{
 			var c = snake_array[i];
 			//Lets paint 10px wide cells
-			paint_cell(c.x, c.y);
+			paint_cell(c.x, c.y,true);
 		}
 		
 		//Lets paint the food
-		paint_cell(food.x, food.y);
+		paint_cell(food.x, food.y,false);
 		//Lets paint the score
 		var score_text = "Score: " + score;
 		ctx.fillText(score_text, 5, h-5);
@@ -195,9 +214,14 @@ $(document).ready(function(){
 	}
 	
 	//Lets first create a generic function to paint cells
-	function paint_cell(x, y)
+	function paint_cell(x, y,isItSnake)
 	{
-		ctx.fillStyle = "blue";
+
+		if (isItSnake)
+		ctx.fillStyle = snakeColor;
+	    else
+	    ctx.fillStyle = foodColor;
+
 		ctx.fillRect(x*cw, y*cw, cw, cw);
 		ctx.strokeStyle = "white";
 		ctx.strokeRect(x*cw, y*cw, cw, cw);

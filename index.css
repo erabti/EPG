@@ -102,6 +102,10 @@ body
 {
    visibility:hidden;
 }
+.events_btns 
+{
+   visibility:hidden;
+}
 #if_statement_buttons
 {
    background-color: blue;
