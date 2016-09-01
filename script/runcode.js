@@ -1,12 +1,28 @@
+//varaibles
+var snake_color = "#4700e0";
+defaultMode = true;
 //functions 
 function HasItTouchedItself ()
 {
-	console.log(hasItTouchedItself);
  return hasItTouchedItself;
 }
-function SetSnakeColor (color)
+function HasItTouchedWall ()
 {
-	snakeColor = color;
+	return hasItTouchedWall
+}
+function HasItTouchedFood ()
+{
+	return hasItTouchedFood;
+}
+function PickSnakeColor (colorPicker)
+{
+    snake_color = '#'+colorPicker.toString();
+	var color_picker = document.getElementById("color_picker1");
+	color_picker.value = '#'+colorPicker.toString();
+}
+function SetSnakeColor ()
+{
+	snakeColor = snake_color
 }
 function SetSnakeSpeed (speed) //needs restarting
 {
@@ -45,64 +61,4 @@ function Restart ()
 function AlertText (text)
 {
   window.alert(text);
-}
-
-//generate code
-function readCode (code)
-{
-	var splitedCode = code.split('.');
-	var basecode = "statement (condition) {todo}";
-
-	switch (splitedCode[0])
-{
-	 case "if":
-	 basecode = basecode.replace ("statement", "if");
-	  switch (splitedCode[1])
-	  {
-	   case "toucheditself":
-        if (HasItTouchedItself())
-        {
-
-        }
-	   break;
-	   case "touchedfood":
-	   break;
-	   case "touchedwalls":
-	   break;
-	   case "pressup":
-	   break;
-	   case "pressdown":
-	   break;
-	   case "pressleft":
-	   break;
-	   case "pressright":
-	   break;
-	   case "timepassed":
-	   break;
-	   default:
-	}
-	break;
-	default:
-	}
-
-	
-    
-}
-function runcode (code)
-{
-	var basecode = "";
-	var array = code.split(".");
-
-	if (array[0] == "1")
-	{
-      basecode = "if (1 == number) {statement}";
-	}
-	if (array[1] == "1")
-	{
-   basecode =  basecode.replace("number", "1");
-	}
-    basecode = basecode.replace("statement", "alert(something)");
-    basecode = basecode.replace("something", array[2]);
-   console.log(basecode);
-   eval(basecode);
 }

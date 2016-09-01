@@ -121,6 +121,12 @@ body
    font-size: 13px;
 
 }
+#snake_color
+{
+    position: absolute;
+   border: 1px #A9A9A9 solid;
+   visibility: hidden;
+}
 
 #PageFooter1
 {

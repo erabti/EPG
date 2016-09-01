@@ -100,62 +100,62 @@ document.getElementById("if_p_button3").onclick = function()
 	hideButtons(if_statement_buttons);
 	showButtons(events_buttons);
 
-	code+="touchedwalls"
+	code+=".touchedwalls"
 }
 document.getElementById("if_p_button4").onclick = function()
 {
 	hideButtons(if_statement_buttons);
 	showButtons(events_buttons);
-	code+= "pressup";
+	code+= ".pressup";
 }
 document.getElementById("if_p_button5").onclick = function()
 {
 	hideButtons(if_statement_buttons);
 	showButtons(events_buttons);
 
-	code+= "pressdown";
+	code+= ".pressdown";
 }
 document.getElementById("if_p_button6").onclick = function()
 {
 	hideButtons(if_statement_buttons);
 	showButtons(events_buttons);
 
-	code+= "pressleft"
+	code+= ".pressleft"
 }
 document.getElementById("if_p_button7").onclick = function()
 {
 	hideButtons(if_statement_buttons);
 	showButtons(events_buttons);
 
-	code+= "pressright";
+	code+= ".pressright";
 }
 document.getElementById("if_p_button8").onclick = function()
 {
 	hideButtons(if_statement_buttons);
 	showButtons(events_buttons);
 
-	code+= "timepassed";
+	code+= ".timepassed";
 }
 document.getElementById("if_p_button9").onclick = function()
 {
 	hideButtons(if_statement_buttons);
 	showButtons(events_buttons);
 
-	code += "clickedsnake";
+	code += ".clickedsnake";
 }
 document.getElementById("if_p_button10").onclick = function()
 {
 	hideButtons(if_statement_buttons);
 	showButtons(events_buttons);
 
-	code+= "clickedfood";
+	code+= ".clickedfood";
 }
 document.getElementById("if_p_button11").onclick = function()
 {
 	hideButtons(if_statement_buttons);
 	showButtons(events_buttons);
 
-	code+= "clickedwhitespace";
+	code+= ".clickedwhitespace";
 }
 //END********************
 //events buttons
@@ -163,6 +163,11 @@ document.getElementById("events_button1").onclick = function()
 {
 
 	code+= ".snakecolor";
+	hideButtons(events_buttons);
+    document.getElementById("wb_Shape3").style.height = "140px";
+	document.getElementById("Shape3").style.height = "140px";
+	document.getElementById("snake_color").style.visibility = "visible";
+
 }
 document.getElementById("events_button2").onclick = function()
 {
@@ -213,3 +218,74 @@ document.getElementById("events_button11").onclick = function()
 
 	code+= ".prompt";
 }
+//Runcode button event
+var runClicked = false;
+document.getElementById("runcode_button").onclick= function ()
+{
+    runClicked = true;
+    defaultMode = false;
+    document.getElementById("runcode_button").value = "Running...";
+    document.getElementById("discard_button").value = "Stop Running";
+}
+document.getElementById("discard_button").onclick = function ()
+{
+	runClicked = false;
+	clearInterval(run_loop);
+	Restart();
+	//todo: declare a functio return all the mess back (default conrole panel)
+}
+function running ()
+{
+	if (runClicked)
+	{
+		var code_array = code.split('.');
+    
+switch (code_array[0])
+{
+	case "if":
+	 switch(code_array[1])
+	 {
+	 	case "toucheditself":
+	 	 switch (code_array[2])
+	 	 {
+	 	 	case "snakecolor":
+	 	 	var hasItTouchedItself = HasItTouchedItself();
+	 	 //	console.log(hasItTouchedItself);
+	 	 	if (hasItTouchedItself)
+	 	 		{
+	 	 			SetSnakeColor();
+	 	 		}
+	 	 	break;
+	 	 }
+	 	break;
+	 	case "touchedwalls":
+	 	 switch (code_array[2])
+	 	 {
+	 	 	case "snakecolor":
+	 	 	 if (HasItTouchedWall())
+	 	 	 {
+	 	 	 	SetSnakeColor();
+	 	 	 }
+	 	 	 	
+	 	 	break;
+	 	 }
+	 	break;
+	 	case "touchedfood":
+	 	 switch (code_array[2])
+	 	 {
+	 	 	case "snakecolor":
+	 	 	 if (HasItTouchedFood())
+	 	 	 {
+	 	 	 	SetSnakeColor();
+	 	 	 }
+	 	 	break;
+	 	 }
+	 	break;
+	 }
+	break;
+}
+
+	
+}
+}
+run_loop = setInterval(running, 5);

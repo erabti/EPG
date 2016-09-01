@@ -2,11 +2,13 @@ var isPlay = true;
 var stopNow = false;//stopiing the game without deleting the whole cnavas
 var movement = true;
 var hasItTouchedItself = false;
+var hasItTouchedWall = false;
+var hasItTouchedFood = false;
 var snakeColor = "blue";
 var snakeSpeed = 60;
 var foodColor = "blue";
 var defaultLength = 5;
-var startDirection = "left";
+var startDirection = "right";
 var backgroundColor = "white";
 var score;
 function puse () //puse and resume the game
@@ -145,19 +147,30 @@ $(document).ready(function(){
 		//Lets add the code for body collision
 		//Now if the head of the snake bumps into its body, the game will restart
 
-		if(nx == -1 || nx == w/cw || ny == -1 || ny == h/cw || check_collision(nx, ny, snake_array))
+		if((nx == -1 || nx == w/cw || ny == -1 || ny == h/cw || check_collision(nx, ny, snake_array)) && defaultMode)
 		{
-			hasItTouchedItself = true;
 			//restart game
-			if (movement);
-			//init();
+			if (movement)
+			init();
 			//Lets organize the code a bit now.
-			//return;
+			return;
+		
 		}
-		else if(!(nx == -1 || nx == w/cw || ny == -1 || ny == h/cw || check_collision(nx, ny, snake_array)))
-		{
-			hasItTouchedItself = false;
-		}
+        if (check_collision(nx, ny, snake_array) && defaultMode == false)
+        {
+        	hasItTouchedItself = true;
+        }else 
+        {
+        	hasItTouchedItself = false;
+        }
+        if ((nx == -1 || nx == w/cw || ny == -1 || ny == h/cw ) &&defaultMode ==false)
+        {
+        	hasItTouchedWall = true;
+        }else
+        {
+        	hasItTouchedWall = false;
+        }
+
 		if (stopNow)
 		{
 			if(movement)
@@ -176,6 +189,7 @@ $(document).ready(function(){
 		if(nx == food.x && ny == food.y)
 		{
 			var tail = {x: nx, y: ny};
+			hasItTouchedFood = true;
 			score++;
 			//Create new food
 			create_food();
@@ -183,6 +197,7 @@ $(document).ready(function(){
 		else
 		{
 			var tail = snake_array;
+			hasItTouchedFood = false;
 			if (movement)
 		    tail = snake_array.pop(); //pops out the last cell
 			tail.x = nx; tail.y = ny;
