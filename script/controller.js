@@ -34,7 +34,6 @@ var if_statement_buttons = document.getElementsByClassName("if_btns");
 //getting events buttons and putting them in an array
 var events_buttons = document.getElementsByClassName("events_btns");
 //END
-
 //declaring hide and show buttons:
 function hideButtons (btn_array)
 {
@@ -102,33 +101,7 @@ document.getElementById("if_p_button3").onclick = function()
 
 	code+=".touchedwalls"
 }
-document.getElementById("if_p_button4").onclick = function()
-{
-	hideButtons(if_statement_buttons);
-	showButtons(events_buttons);
-	code+= ".pressup";
-}
-document.getElementById("if_p_button5").onclick = function()
-{
-	hideButtons(if_statement_buttons);
-	showButtons(events_buttons);
 
-	code+= ".pressdown";
-}
-document.getElementById("if_p_button6").onclick = function()
-{
-	hideButtons(if_statement_buttons);
-	showButtons(events_buttons);
-
-	code+= ".pressleft"
-}
-document.getElementById("if_p_button7").onclick = function()
-{
-	hideButtons(if_statement_buttons);
-	showButtons(events_buttons);
-
-	code+= ".pressright";
-}
 document.getElementById("if_p_button8").onclick = function()
 {
 	hideButtons(if_statement_buttons);
@@ -255,6 +228,9 @@ switch (code_array[0])
 	 	 		{
 	 	 			SetSnakeColor();
 	 	 		}
+	 	 	break;
+	 	 	case "defaultlength":
+
 	 	 	break;
 	 	 }
 	 	break;

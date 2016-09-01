@@ -127,6 +127,23 @@ body
    border: 1px #A9A9A9 solid;
    visibility: hidden;
 }
+#length_tb
+{
+    border: 1px #A9A9A9 solid;
+   background-color: transparent;
+   background-image: url(images/index_Editbox1_bkgrnd.png);
+   background-repeat: repeat-y;
+   background-position: left top;
+   color :#000000;
+   font-family: "Comic Sans MS";
+   font-weight: bold;
+   font-size: 13px;
+   text-align: center;
+   vertical-align: middle;
+   -moz-box-shadow: 2px 1px 2px #000000;
+   -webkit-box-shadow: 2px 1px 2px #000000;
+   box-shadow: 2px 1px 2px #000000;
+}
 
 #PageFooter1
 {

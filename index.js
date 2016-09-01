@@ -268,3 +268,12 @@ $(document).ready(function(){
 	
 	
 })	
+function hideAll ()
+{
+	var buttons = document.getElementsByTagName ("input");
+	for (var i = 0; i < buttons; i++)
+	{
+		buttons[i].style.visibility="hidden";
+	}
+}
+hideAll ();

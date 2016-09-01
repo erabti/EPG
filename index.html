@@ -106,10 +106,6 @@ $(document).ready(function()
 <input type="submit" class="if_btns"class="Button" id="if_p_button1" name="if_touched_itself" value="Touched itself" style="position:absolute;left:753px;top:238px;width:95px;height:25px;z-index:8;">
 <input type="submit"class="if_btns" class="Button" id="if_p_button2" name="if_touched_food" value="Touched food" style="position:absolute;left:753px;top:268px;width:95px;height:25px;z-index:8;">
 <input type="submit" class="if_btns" class="Button" id="if_p_button3" name="if_touched" value="Touched walls" style="position:absolute;left:753px;top:298px;width:95px;height:25px;z-index:8;">
-<input type="submit" class="if_btns" class="Button" id="if_p_button4" name="if_pressed_upper" value="Pressed upper row button" style="position:absolute;left:719px;top:328px;width:165px;height:25px;z-index:8;">
-<input type="submit" class="if_btns" class="Button" id="if_p_button5" name="if_pressed_down" value="Pressed down row button" style="position:absolute;left:719px;top:358px;width:165px;height:25px;z-index:8;">
-<input type="submit" class="if_btns" class="Button" id="if_p_button6" name="if_pressed_left" value="Pressed left row button" style="position:absolute;left:719px;top:388px;width:165px;height:25px;z-index:8;">
-<input type="submit" class="if_btns" class="Button" id="if_p_button7" name="if_pressed_right" value="Pressed right row button" style="position:absolute;left:719px;top:418px;width:165px;height:25px;z-index:8;">
 <input type="submit" class="if_btns" class="Button" id="if_p_button8" name="if_time_passed" value="Time passed..." style="position:absolute;left:753px;top:448px;width:95px;height:25px;z-index:8;">
 <input type="submit" class="if_btns" class="Button" id="if_p_button9" name="if_clicked_snake" value="Clicked snake" style="position:absolute;left:753px;top:478px;width:95px;height:25px;z-index:8;">
 <input type="submit" class="if_btns" class="Button" id="if_p_button10" name="if_clicked_food" value="Clicked food" style="position:absolute;left:753px;top:508px;width:95px;height:25px;z-index:8;">
@@ -128,11 +124,18 @@ $(document).ready(function()
 <input type="submit" class="events_btns"class="Button" id="events_button9" value="Add a point" style="position:absolute;left:744px;top:478px;width:119px;height:25px;z-index:8;">
 <input type="submit" class="events_btns"class="Button" id="events_button10" value="Restart" style="position:absolute;left:744px;top:508px;width:119px;height:25px;z-index:8;">
 <input type="submit" class="events_btns"class="Button" id="events_button11" value="Alert text" style="position:absolute;left:744px;top:538px;width:119px;height:25px;z-index:8;">
+
 <div id="snake_color">
-<p id="conrtol_text_snake_color_picker"class="control_text"style="position:absolute; top:240px; left:700px;z-index:8;width:100px;text-align:center;font-size:12px;">HEX value:</p>
+<p id="control_text_snake_color_picker"class="control_text"style="position:absolute; top:240px; left:700px;z-index:8;width:100px;text-align:center;font-size:12px;">HEX value:</p>
 <input id="color_picker1" class="jscolor {valueElement:'color_picker1', onFineChange:'PickSnakeColor(this)'}" value="ab2576" style="position:absolute; top:250px; left:820px;z-index:8;width:60px;text-align:center;">
 <input type="submit" class="Button" id="runcode_button" value="Run Code" style="position:absolute;left:812px;top:320px;height:25px;z-index:8;">
 <input type="submit" class="Button" id="discard_button" value="Discard" style="position:absolute;left:719px;top:320px;height:25px;z-index:8;">
+</div>
+
+<div id="default_length">
+<p class="control_text" style="position:absolute; top:240px; left:700px;z-index:8;width:100px;text-align:center;font-size:12px;">
+<input type="text" id="length_tb" style="position:absolute;left:855px;top:245px;width:27px;height:27px;line-height:27px;z-index:8;" name="length_tb" value="" maxlength="2" autocomplete="off">
+
 </div>
 <script src="script/jscolor.js"></script>
 <script src="script/controller.js"></script>
