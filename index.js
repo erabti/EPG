@@ -265,12 +265,12 @@ $(document).ready(function(){
 	//Lets add the keyboard controls now
 	$(document).keydown(function(e){
 		var key = e.which;
-		e.preventDefault();
+		
 		//We will add another clause to prevent reverse gear
-		if(key == "37" && d != "right") d = "left";
-		else if(key == "38" && d != "down") d = "up";
-		else if(key == "39" && d != "left") d = "right";
-		else if(key == "40" && d != "up") d = "down";
+		if(key == "37" && d != "right") {e.preventDefault();d = "left";}
+		else if(key == "38" && d != "down") {e.preventDefault();d = "up";}
+		else if(key == "39" && d != "left") {e.preventDefault();d = "right";}
+		else if(key == "40" && d != "up") {e.preventDefault();d = "down";}
 		//The snake is now keyboard controllable
 	}
 	)	

@@ -76,9 +76,14 @@ function Restart ()
 	}
 	var timeout = setTimeout (startItAgain, 5);
 }
-function AlertText (text)
+function AlertText ()
 {
+	var text = document.getElementById("length_tb").value;
+  if (text != undefined)
   window.alert(text);
+else {
+	window.alert("");
+}
 }
 
 var snakeClicked, foodClicked, whitespaceClicked;
