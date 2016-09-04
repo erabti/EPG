@@ -42,7 +42,9 @@ var if_statement_buttons = document.getElementsByClassName("if_btns");
 //getting events buttons and putting them in an array
 var events_buttons = document.getElementsByClassName("events_btns");
 var all_control_items = [];
-
+all_control_items[0] = document.getElementById("default_length");
+all_control_items[1] = document.getElementById("default_direction_div");
+all_control_items[2] = document.getElementById("snake_color");
 //END
 //declaring hide and show buttons:
 function hideButtons (btn_array)
@@ -71,6 +73,13 @@ var code =""; //contains the player instered code.
 showButtons(statements_buttons);//as default
 
 //** Events **
+document.body.onload = function ()
+{
+	isPlay=false; 
+	welcomeAlert();
+	window.scrollTo(0,0);
+	document.getElementById("run_controllers").style.visibility = "hidden";
+}
 //base statements events
 document.getElementById("p_button1").onclick = function()
 {
@@ -83,15 +92,18 @@ document.getElementById("p_button1").onclick = function()
 }
 document.getElementById("p_button2").onclick = function()
 {
- hideButtons(statements_buttons);//hiding statements buttons
+// hideButtons(statements_buttons);//hiding statements buttons
+document.getElementById("p_button2").value = "Coming soon..";
 }
 document.getElementById("p_button3").onclick = function()
 {
- hideButtons(statements_buttons);//hiding statements buttons
+// hideButtons(statements_buttons);//hiding statements buttons
+document.getElementById("p_button3").value = "Coming soon..";
 }
 document.getElementById("p_button4").onclick = function()
 {
- hideButtons(statements_buttons);//hiding statements buttons
+// hideButtons(statements_buttons);//hiding statements buttons
+document.getElementById("p_button4").value = "Coming soon..";
 }
 //END
 //if statements events
@@ -101,6 +113,7 @@ document.getElementById("if_p_button1").onclick = function()
 	showButtons(events_buttons);
 
 	code+= ".toucheditself";
+	restartIfTouchedItself = false;
 }
 document.getElementById("if_p_button2").onclick = function()
 {
@@ -108,13 +121,15 @@ document.getElementById("if_p_button2").onclick = function()
 	showButtons(events_buttons);
 
 	code+= ".touchedfood";
+
 }
 document.getElementById("if_p_button3").onclick = function()
 {
 	hideButtons(if_statement_buttons);
 	showButtons(events_buttons);
 
-	code+=".touchedwalls"
+	code+=".touchedwalls";
+	restartIfTouchedWall = false;
 }
 var timePassed = 0;
 document.getElementById("if_p_button8").onclick = function()
@@ -155,6 +170,7 @@ document.getElementById("events_button1").onclick = function()
 	hideButtons(events_buttons);
 	resizeShape3 ();
 	document.getElementById("snake_color").style.visibility = "visible";
+	document.getElementById("run_controllers").style.visibility = "visible";
 
 }
 document.getElementById("events_button2").onclick = function()
@@ -262,8 +278,12 @@ document.getElementById("discard_button").onclick = function ()
 	{
 		code ="";
 		document.getElementById("run_controllers").style.visibility = "hidden";
+		hideButtons(all_control_items);
 		showButtons (statements_buttons);
         returnWidthHeightShape3();
+
+        restartIfTouchedWall = true;
+        restartIfTouchedItself = true;
 	}
 	//clear all the mess;
 	document.getElementById("runcode_button").value = "Run Code";

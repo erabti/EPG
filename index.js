@@ -11,8 +11,9 @@ var defaultLength = 5;
 var startDirection = "right";
 var backgroundColor = "white";
 var score;
-var isRestart = false;
-var RestartObj = {};
+
+var restartIfTouchedWall = true;
+var restartIfTouchedItself = true;
 
 var snake_array; //an array of cells to make up the snake
 var food;//
@@ -156,25 +157,26 @@ $(document).ready(function(){
 		//Lets add the code for body collision
 		//Now if the head of the snake bumps into its body, the game will restart
    
-		if((nx == -1 || nx == w/cw || ny == -1 || ny == h/cw || check_collision(nx, ny, snake_array)) && defaultMode)
-		{
-			//restart game
-			if (movement)
-			init();
-			//Lets organize the code a bit now.
-			return;
-		
-		}
-        if (check_collision(nx, ny, snake_array) && defaultMode == false)
+        if (check_collision(nx, ny, snake_array))
         {
         	hasItTouchedItself = true;
+        	if (restartIfTouchedItself)
+        	{
+        		init(); //restarting;
+        		return; //clean up the mess
+        	}
         }else 
         {
         	hasItTouchedItself = false;
         }
-        if ((nx == -1 || nx == w/cw || ny == -1 || ny == h/cw ) &&defaultMode ==false)
+        if ((nx == -1 || nx == w/cw || ny == -1 || ny == h/cw ))
         {
         	hasItTouchedWall = true;
+        	if (restartIfTouchedWall)
+        	{
+        		init()//restarting;
+        		return; //clean up the mess
+        	}
         }else
         {
         	hasItTouchedWall = false;

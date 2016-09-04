@@ -52,8 +52,7 @@ $(document).ready(function()
 });
 </script>
 </head>
-
-<body onload="isPlay=false; welcomeAlert();window.scrollTo(0,0)">
+<body onload="">
 
 <div id="container">
 <div id="wb_Shape1" style="position:absolute;left:226px;top:0px;width:516px;height:172px;z-index:0;">
@@ -126,12 +125,11 @@ $(document).ready(function()
 <div id="snake_color">
 <p id="control_text_snake_color_picker"class="control_text"style="position:absolute; top:240px; left:700px;z-index:8;width:100px;text-align:center;font-size:12px;">HEX value:</p>
 <input id="color_picker1" class="jscolor {valueElement:'color_picker1', onFineChange:'PickSnakeColor(this)'}" value="ab2576" style="position:absolute; top:250px; left:820px;z-index:8;width:60px;text-align:center;">
+</div>
 <div id="run_controllers">
 <input type="submit" class="Button" id="runcode_button" value="Run Code" style="position:absolute;left:812px;top:320px;height:25px;z-index:8;">
 <input type="submit" class="Button" id="discard_button" value="Discard" style="position:absolute;left:719px;top:320px;height:25px;width:89px;z-index:8;">
 </div>
-</div>
-
 <div id="default_length">
 <p class="control_text" id="length_text" style="position:absolute; top:240px; left:720px;z-index:8;width:100px;text-align:center;font-size:12px;">Insert length:</p>
 <input type="text" id="length_tb" style="position:absolute;left:855px;top:245px;width:27px;height:27px;line-height:27px;z-index:9;" name="length_tb" value="5" maxlength="2"></input>
