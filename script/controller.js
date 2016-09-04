@@ -41,6 +41,8 @@ var statements_buttons = [if_btn,for_btn,switch_btn,while_btn]; //in an array
 var if_statement_buttons = document.getElementsByClassName("if_btns");
 //getting events buttons and putting them in an array
 var events_buttons = document.getElementsByClassName("events_btns");
+var all_control_items = [];
+
 //END
 //declaring hide and show buttons:
 function hideButtons (btn_array)
@@ -260,7 +262,7 @@ document.getElementById("discard_button").onclick = function ()
 	{
 		code ="";
 		document.getElementById("run_controllers").style.visibility = "hidden";
-		showButtons ("statements_buttons");
+		showButtons (statements_buttons);
         returnWidthHeightShape3();
 	}
 	//clear all the mess;
@@ -527,7 +529,11 @@ if (runClicked)
 	 	 	if(HasWhitespaceClicked()) AddPoint();
 	 	 	break;	
 	 	 	case "restart":
-	 	 	if(HasWhitespaceClicked()) Restart();
+	 	 	if(HasWhitespaceClicked()) 
+	 	 		{
+	 	 			console.log("TRUE");
+	 	 			Restart();
+	 	 		}
 	 	 	break;
 	 	 	case "prompt":
 	 	    if(HasWhitespaceClicked()) AlertText();

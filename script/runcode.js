@@ -69,12 +69,7 @@ function AddPoint ()
 }
 function Restart ()
 {
-	stopNow = true;
-	function startItAgain()
-	{
-		stopNow = false ;
-	}
-	var timeout = setTimeout (startItAgain, 5);
+	
 }
 function AlertText ()
 {
