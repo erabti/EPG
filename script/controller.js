@@ -234,11 +234,13 @@ document.getElementById("events_button9").onclick = function()
 }
 document.getElementById("events_button10").onclick = function()
 {
-
-	code+= ".restart";
+    //todo:
+	/*code+= ".restart";
 	hideButtons(events_buttons);
 	resizeShape3();
-	document.getElementById("run_controllers").style.visibility = "visible";
+	document.getElementById("run_controllers").style.visibility = "visible";*/
+
+	document.getElementById("events_button10").value = "Coming soon..";
 }
 document.getElementById("events_button11").onclick = function()
 {
