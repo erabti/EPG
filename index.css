@@ -25,12 +25,14 @@ body
     position:absolute;
     left:242px;
     top:220px;
-    width:471px;
-    height:471px;
+    width:450px;
+    height:450px;
     z-index:9;
     visibility: visible;
 }
-
+#canvas
+{
+}
 #Image3
 {
    border: 0px #000000 solid;
@@ -112,6 +114,7 @@ body
    text-align: center;
 }
 .control_text
+
 {
    position: absolute;
    left:25%;
@@ -121,7 +124,7 @@ body
    font-size: 13px;
 
 }
-#snake_color
+#snake_color,#default_length,#default_direction_div
 {
     position: absolute;
    border: 1px #A9A9A9 solid;

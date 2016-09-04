@@ -11,6 +11,9 @@ var defaultLength = 5;
 var startDirection = "right";
 var backgroundColor = "white";
 var score;
+
+var snake_array; //an array of cells to make up the snake
+var food;//
 function puse () //puse and resume the game
 {
 	if (isPlay)
@@ -18,8 +21,9 @@ function puse () //puse and resume the game
     movement = !movement; //do the opp of the movemnt value
 	var button2 = document.getElementById ("Button2"); //gets the object Button2
 	//Changing the button text according to the statution
-	if(movement) button2.value = "Puse"; 
+	if(movement) {button2.value = "Puse";window.scrollTo(0, window.scrollMaxY);}
 	else if (!movement) button2.value = "Resume";
+	
 	}
     
 
@@ -60,10 +64,8 @@ $(document).ready(function(){
 	//Lets save the cell width in a variable for easy control
 	var cw = 10;
 	var d;
-	var food;
 	//Lets create the snake now
-	var snake_array; //an array of cells to make up the snake
-
+	
 	function init()
 	{
 		d = startDirection; //default direction
@@ -79,6 +81,7 @@ $(document).ready(function(){
 				clearInterval(game_loop);
 			}
 			console.log (paint);
+
 		// Puse Button (Button2) logic
         if (movement){
         	game_loop = setInterval(paint, snakeSpeed);
@@ -123,8 +126,12 @@ $(document).ready(function(){
 		//Lets paint the canvas now
 		ctx.fillStyle = backgroundColor;
 		ctx.fillRect(0, 0, w, h);
+		if (!runClicked)
 		ctx.strokeStyle = "black";
+	    if(runClicked)
+	    ctx.strokeStyle = "red";
 		ctx.strokeRect(0, 0, w, h);
+
 		
 		//The movement code for the snake to come here.
 		//The logic is simple
@@ -240,6 +247,7 @@ $(document).ready(function(){
 		ctx.fillRect(x*cw, y*cw, cw, cw);
 		ctx.strokeStyle = "white";
 		ctx.strokeRect(x*cw, y*cw, cw, cw);
+		ctx.lineWidth = 0;
 	}
 	
 	function check_collision(x, y, array)
@@ -257,23 +265,16 @@ $(document).ready(function(){
 	//Lets add the keyboard controls now
 	$(document).keydown(function(e){
 		var key = e.which;
+		e.preventDefault();
 		//We will add another clause to prevent reverse gear
 		if(key == "37" && d != "right") d = "left";
 		else if(key == "38" && d != "down") d = "up";
 		else if(key == "39" && d != "left") d = "right";
 		else if(key == "40" && d != "up") d = "down";
 		//The snake is now keyboard controllable
-	})	
+	}
+	)	
 	
 	
 	
 })	
-function hideAll ()
-{
-	var buttons = document.getElementsByTagName ("input");
-	for (var i = 0; i < buttons; i++)
-	{
-		buttons[i].style.visibility="hidden";
-	}
-}
-hideAll ();
