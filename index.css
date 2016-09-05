@@ -104,7 +104,7 @@ body
 {
    visibility:hidden;
 }
-.events_btns 
+.events_btns , #run_controllers
 {
    visibility:hidden;
 }
