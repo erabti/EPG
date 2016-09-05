@@ -5,7 +5,7 @@ function welcomeAlert ()
 }
 function changeWidthHeightShape3 ()
 {
-	if(code == "if")
+	if(code.split('.')[0]== "if")
 	{
 		document.getElementById("wb_Shape3").style.width = "182px";
 		document.getElementById("wb_Shape3").style.height ="295px";
@@ -77,7 +77,31 @@ function resizeShape3()
 }
 //END
 
-var code =""; //contains the player inserted code.
+var code ; //contains the player inserted code.
+function setCodeDefault ()
+{
+	code ="keyword.condition.statement";
+//	showBaseCodeOn();
+}
+setCodeDefault();
+function setCodeKeyword (keyword)
+{
+	code = code.replace("keyword", keyword);
+	showBaseCodeOn();
+	showRealCodeOn();
+}
+function setCodeCondition (condition)
+{
+	code = code.replace("condition", condition);
+    showBaseCodeOn();
+    showRealCodeOn();
+}
+function setCodeStatement (statement)
+{
+	code = code.replace("statement", statement);
+	showBaseCodeOn();
+	showRealCodeOn();
+}
 
 showButtons(statements_buttons);//as default
 
@@ -94,8 +118,7 @@ document.getElementById("p_button1").onclick = function()
 {
  hideButtons(statements_buttons);//hiding statements buttons
  showButtons(if_statement_buttons);
- 
- code += "if"
+ setCodeKeyword("if");
  changeWidthHeightShape3()
  changeControlText("Select a Condition");
 }
@@ -121,8 +144,7 @@ document.getElementById("if_p_button1").onclick = function()
 {
 	hideButtons(if_statement_buttons);
 	showButtons(events_buttons);
-
-	code+= ".toucheditself";
+	setCodeCondition("toucheditself");
 	restartIfTouchedItself = false;
 
 
@@ -133,16 +155,14 @@ document.getElementById("if_p_button2").onclick = function()
 	hideButtons(if_statement_buttons);
 	showButtons(events_buttons);
 
-	code+= ".touchedfood";  
-
+    setCodeCondition("touchedfood");
 	document.getElementById("p_control_text").childNodes[0].textContent = "Select a Statement";
 }
 document.getElementById("if_p_button3").onclick = function()
 {
 	hideButtons(if_statement_buttons);
 	showButtons(events_buttons);
-
-	code+=".touchedwalls";
+	setCodeCondition("touchedwalls");
 	restartIfTouchedWall = false;
 
 	document.getElementById("p_control_text").childNodes[0].textContent = "Select a Statement";
@@ -154,7 +174,7 @@ document.getElementById("if_p_button8").onclick = function()
     timePassed = prompt("Please enter amount of time:","In seconds...");
 	showButtons(events_buttons);
 
-	code+= ".timepassed";
+	setCodeCondition("timepassed");
 
 	document.getElementById("p_control_text").childNodes[0].textContent = "Select a Statement";
 }
@@ -163,7 +183,7 @@ document.getElementById("if_p_button9").onclick = function()
 	hideButtons(if_statement_buttons);
 	showButtons(events_buttons);
 
-	code += ".clickedsnake";
+	setCodeCondition("clickedsnake");
 
 	document.getElementById("p_control_text").childNodes[0].textContent = "Select a Statement";
 }
@@ -172,8 +192,7 @@ document.getElementById("if_p_button10").onclick = function()
 	hideButtons(if_statement_buttons);
 	showButtons(events_buttons);
 
-	code+= ".clickedfood";
-
+    setCodeCondition("clickedfood");
 	document.getElementById("p_control_text").childNodes[0].textContent = "Select a Statement";
 }
 document.getElementById("if_p_button11").onclick = function()
@@ -181,8 +200,7 @@ document.getElementById("if_p_button11").onclick = function()
 	hideButtons(if_statement_buttons);
 	showButtons(events_buttons);
 
-	code+= ".clickedwhitespace";
-
+    setCodeCondition("clickedwhitespace");
 	document.getElementById("p_control_text").childNodes[0].textContent = "Select a Statement";
 }
 //END********************
@@ -190,8 +208,7 @@ document.getElementById("if_p_button11").onclick = function()
 document.getElementById("events_button1").onclick = function()
 {
 
-	code+= ".snakecolor";
-
+    setCodeStatement("snakecolor");
 	hideButtons(events_buttons);
 	resizeShape3 ();
 	document.getElementById("snake_color").style.visibility = "visible";
@@ -202,8 +219,7 @@ document.getElementById("events_button1").onclick = function()
 }
 document.getElementById("events_button2").onclick = function()
 {
-	
-	code+= ".defaultlength";
+	setCodeStatement("defaultlength");
 	hideButtons(events_buttons);
 	resizeShape3();
 	document.getElementById("default_length").style.visibility = "visible";
@@ -212,8 +228,7 @@ document.getElementById("p_control_text").childNodes[0].textContent = "Insert a 
 }
 document.getElementById("events_button3").onclick = function()
 {
-
-	code+=".snakespeed";
+	setCodeStatement("snakespeed");
 	hideButtons(events_buttons);
 	resizeShape3();
 	document.getElementById("default_length").style.visibility="visible";
@@ -227,7 +242,7 @@ document.getElementById("events_button3").onclick = function()
 document.getElementById("events_button5").onclick = function()
 {
 
-	code+= ".startdirection";
+	setCodeStatement("startdirection");
 	hideButtons(events_buttons);
 	resizeShape3();
 	document.getElementById("default_direction_div").style.visibility = "visible";
@@ -239,27 +254,26 @@ document.getElementById("events_button5").onclick = function()
 document.getElementById("events_button6").onclick = function()
 {
 
-	code+= ".foodcolor";
+	setCodeStatement("foodcolor");
 	hideButtons(events_buttons);
 	resizeShape3();
 	document.getElementById("snake_color").style.visibility = "visible";
-
+    document.getElementById("run_controllers").style.visibility ="visible";
 	document.getElementById("p_control_text").childNodes[0].textContent = "Insert a Value";
 }
 document.getElementById("events_button8").onclick = function()
 {
-
-	code+= ".backgroundcolor";
+	setCodeStatement("backgroundcolor");
 	hideButtons(events_buttons);
 	resizeShape3();
 
 	document.getElementById("snake_color").style.visibility = "visible";
 	document.getElementById("p_control_text").childNodes[0].textContent = "Insert a Value";
+	document.getElementById("run_controllers").style.visibility = "visible";
 }
 document.getElementById("events_button9").onclick = function()
 {
-
-	code += ".point";
+	setCodeStatement("point");
 	hideButtons(events_buttons);
 	resizeShape3();
 	document.getElementById("default_length").style.visibility = "visible";
@@ -280,8 +294,7 @@ document.getElementById("events_button10").onclick = function()
 }
 document.getElementById("events_button11").onclick = function()
 {
-
-	code+= ".prompt";
+	setCodeStatement("prompt");
 	hideButtons(events_buttons);
 	resizeShape3();
     document.getElementById("default_length").style.visibility = "visible";
@@ -326,7 +339,7 @@ document.getElementById("discard_button").onclick = function ()
 	Restart();
 	if (document.getElementById("discard_button").value == "Discard")
 	{
-		code ="";
+		setCodeDefault();
 		document.getElementById("run_controllers").style.visibility = "hidden";
 		hideButtons(all_control_items);
 		showButtons (statements_buttons);
@@ -344,6 +357,11 @@ document.getElementById("discard_button").onclick = function ()
 var timeout ;
 function running ()
 {
+if (code.split('.').length == 3)
+{
+	showRealCodeOn();
+}
+
 
 if (runClicked)
 {
