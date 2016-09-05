@@ -12,8 +12,12 @@ function changeWidthHeightShape3 ()
 		document.getElementById("Shape3").style.width = "182px";
 		document.getElementById("Shape3").style.height ="295px";
 		document.getElementById("p_control_text").style.left = "25px";
+
+		document.getElementById("wb_Shape4").style.top = "110px";
+		document.getElementById("wb_Shape4").style.left = "8px";
 	}
 }
+
 function returnWidthHeightShape3 ()
 {
 	    document.getElementById("wb_Shape3").style.width = "162px";
@@ -21,6 +25,9 @@ function returnWidthHeightShape3 ()
 		document.getElementById("Shape3").style.width = "162px";
 		document.getElementById("Shape3").style.height ="165px";
 		document.getElementById("p_control_text").style.left = "20px";
+
+		document.getElementById("wb_Shape4").style.top = "0px";
+		document.getElementById("wb_Shape4").style.left = "0px";
 }
 function changeControlText (text)
 {
@@ -65,10 +72,12 @@ function resizeShape3()
 {
 	document.getElementById("wb_Shape3").style.height = "140px";
 	document.getElementById("Shape3").style.height = "140px";
+	document.getElementById("wb_Shape4").style.top = "-25px";
+		document.getElementById("wb_Shape4").style.left = "8px";
 }
 //END
 
-var code =""; //contains the player instered code.
+var code =""; //contains the player inserted code.
 
 showButtons(statements_buttons);//as default
 
@@ -107,6 +116,7 @@ document.getElementById("p_button4").value = "Coming soon..";
 }
 //END
 //if statements events
+
 document.getElementById("if_p_button1").onclick = function()
 {
 	hideButtons(if_statement_buttons);
@@ -114,14 +124,18 @@ document.getElementById("if_p_button1").onclick = function()
 
 	code+= ".toucheditself";
 	restartIfTouchedItself = false;
+
+
+	document.getElementById("p_control_text").childNodes[0].textContent = "Select a Statement";
 }
 document.getElementById("if_p_button2").onclick = function()
 {
 	hideButtons(if_statement_buttons);
 	showButtons(events_buttons);
 
-	code+= ".touchedfood";
+	code+= ".touchedfood";  
 
+	document.getElementById("p_control_text").childNodes[0].textContent = "Select a Statement";
 }
 document.getElementById("if_p_button3").onclick = function()
 {
@@ -130,6 +144,8 @@ document.getElementById("if_p_button3").onclick = function()
 
 	code+=".touchedwalls";
 	restartIfTouchedWall = false;
+
+	document.getElementById("p_control_text").childNodes[0].textContent = "Select a Statement";
 }
 var timePassed = 0;
 document.getElementById("if_p_button8").onclick = function()
@@ -139,6 +155,8 @@ document.getElementById("if_p_button8").onclick = function()
 	showButtons(events_buttons);
 
 	code+= ".timepassed";
+
+	document.getElementById("p_control_text").childNodes[0].textContent = "Select a Statement";
 }
 document.getElementById("if_p_button9").onclick = function()
 {
@@ -146,6 +164,8 @@ document.getElementById("if_p_button9").onclick = function()
 	showButtons(events_buttons);
 
 	code += ".clickedsnake";
+
+	document.getElementById("p_control_text").childNodes[0].textContent = "Select a Statement";
 }
 document.getElementById("if_p_button10").onclick = function()
 {
@@ -153,6 +173,8 @@ document.getElementById("if_p_button10").onclick = function()
 	showButtons(events_buttons);
 
 	code+= ".clickedfood";
+
+	document.getElementById("p_control_text").childNodes[0].textContent = "Select a Statement";
 }
 document.getElementById("if_p_button11").onclick = function()
 {
@@ -160,6 +182,8 @@ document.getElementById("if_p_button11").onclick = function()
 	showButtons(events_buttons);
 
 	code+= ".clickedwhitespace";
+
+	document.getElementById("p_control_text").childNodes[0].textContent = "Select a Statement";
 }
 //END********************
 //events buttons
@@ -167,11 +191,14 @@ document.getElementById("events_button1").onclick = function()
 {
 
 	code+= ".snakecolor";
+
 	hideButtons(events_buttons);
 	resizeShape3 ();
 	document.getElementById("snake_color").style.visibility = "visible";
 	document.getElementById("run_controllers").style.visibility = "visible";
+    
 
+	document.getElementById("p_control_text").childNodes[0].textContent = "Insert a Value";
 }
 document.getElementById("events_button2").onclick = function()
 {
@@ -181,6 +208,7 @@ document.getElementById("events_button2").onclick = function()
 	resizeShape3();
 	document.getElementById("default_length").style.visibility = "visible";
 	document.getElementById("run_controllers").style.visibility="visible";
+document.getElementById("p_control_text").childNodes[0].textContent = "Insert a Value";
 }
 document.getElementById("events_button3").onclick = function()
 {
@@ -193,6 +221,8 @@ document.getElementById("events_button3").onclick = function()
 	document.getElementById("length_tb").value = "60";
 	document.getElementById("length_tb").maxLength = "3";
 	document.getElementById("run_controllers").style.visibility = "visible";
+
+	document.getElementById("p_control_text").childNodes[0].textContent = "Insert a Value";
 }
 document.getElementById("events_button5").onclick = function()
 {
@@ -203,6 +233,8 @@ document.getElementById("events_button5").onclick = function()
 	document.getElementById("default_direction_div").style.visibility = "visible";
 	default_direction.col1[0].checked = true;
 	document.getElementById("run_controllers").style.visibility="visible";
+
+	document.getElementById("p_control_text").childNodes[0].textContent = "Insert a Value";
 }
 document.getElementById("events_button6").onclick = function()
 {
@@ -211,6 +243,8 @@ document.getElementById("events_button6").onclick = function()
 	hideButtons(events_buttons);
 	resizeShape3();
 	document.getElementById("snake_color").style.visibility = "visible";
+
+	document.getElementById("p_control_text").childNodes[0].textContent = "Insert a Value";
 }
 document.getElementById("events_button8").onclick = function()
 {
@@ -220,6 +254,7 @@ document.getElementById("events_button8").onclick = function()
 	resizeShape3();
 
 	document.getElementById("snake_color").style.visibility = "visible";
+	document.getElementById("p_control_text").childNodes[0].textContent = "Insert a Value";
 }
 document.getElementById("events_button9").onclick = function()
 {
@@ -231,6 +266,7 @@ document.getElementById("events_button9").onclick = function()
 	document.getElementById("length_text").childNodes[0].textContent = "Points:";
 	document.getElementById("length_tb").value = "1";
 	document.getElementById("run_controllers").style.visibility="visible";
+	document.getElementById("p_control_text").childNodes[0].textContent = "Insert a Value";
 }
 document.getElementById("events_button10").onclick = function()
 {
@@ -257,6 +293,7 @@ document.getElementById("events_button11").onclick = function()
     tb.style["background-repeat"] = "repeat";
 
 	document.getElementById("run_controllers").style.visibility = "visible";
+	document.getElementById("p_control_text").childNodes[0].textContent = "Insert a Value";
 
 }
 function showBaseCode(x)
