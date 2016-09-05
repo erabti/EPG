@@ -143,6 +143,23 @@ $(document).ready(function()
    <p class="control_text" id="direction_text4" style="position:absolute; top:270px; left:787px;z-index:8;width:100px;text-align:center;font-size:11px;">Up<input type="radio" name="col1" value="d" /></p>
 </form>
 </div>
+
+<div id="wb_Shape4" style="position:absolute;width:162px;height:164px;z-index:7;">
+<div style="left:706px;position:absolute; top:415px;">
+<h6 id="p_control_text" class="control_text" style="left:68px;">Code</h6>
+<img src="images/img0004.png" id="Shape4" alt="" style="width:178px;height:164px;">
+</div>
+
+<p id="realcode" style="position:absolute;left:720px;top:430px; z-index:8;text-align:left;font-size:12px;font-family:arial;background-color:white;border:1px solid black; width:140px;height:90px;padding-left:5px;padding-top:5px;"><span id="keyword_code" style="color:red;">Keyword</span>(<span id="condition_code" style="color:blue;">Condition</span>)<br/>{<br/><span id="statement_code" style="color:green;">Statement</span><br/>}</p>
+
+<p id="basecode" style="visibility:hidden;position:absolute;left:720px;top:430px; z-index:8;text-align:left;font-size:10px;font-family:arial;background-color:white;border:1px solid black; width:140px;height:90px;padding-left:5px;padding-top:5px;"><span id="keyword_code" style="color:red;"><span id="keyword_code_b" style="color:red;">Keyword</span>.<span id="condition_code_b" style="color:blue;">Condition</span>.<span id="statement_code_b" style="color:green;">Event</span></p>
+
+<input onclick="showBaseCode(true);" type="submit" class="Button" id="basecode_button" value="Base Code" style="position:absolute;left:798px;top:545px;height:25px;z-index:8;">
+<input onclick="showBaseCode(false);"type="submit" class="Button" id="realcode_button" value="Real Code" style="position:absolute;left:710px;top:545px;height:25px;z-index:8;">
+</div>
+
+
+
 <script src="script/jscolor.js"></script>
 <script src="script/controller.js"></script>
 <script src="script/runcode.js"></script>

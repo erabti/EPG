@@ -259,8 +259,19 @@ document.getElementById("events_button11").onclick = function()
 	document.getElementById("run_controllers").style.visibility = "visible";
 
 }
-//determine wether snake clicked or not:
-
+function showBaseCode(x)
+{
+	if (x)
+	{
+	document.getElementById("basecode").style.visibility = "visible";
+	document.getElementById("realcode").style.visibility = "hidden";
+	} else 
+	{
+	document.getElementById("basecode").style.visibility = "hidden";
+	document.getElementById("realcode").style.visibility = "visible";
+	}
+	
+}
 //Runcode button event
 var runClicked = false;
 document.getElementById("runcode_button").onclick= function ()
