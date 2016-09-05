@@ -1,0 +1,5 @@
+-New programming statements:for,switch and while.
+-NEW GAMES:More graphical games.
+-Boyish-or-Girlish mode:Detemine the style according to the player gender.
+-Add sound effects.
+-Build a "Website-Guider" pop-ups windows.
